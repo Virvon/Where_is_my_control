@@ -7,16 +7,19 @@ namespace WhereIsMyControl.Infrastructure
         private const string InitScene = "";
 
         private readonly AllServices _services;
+        private readonly IGameStateMachine _stateMachine;
 
-        public BootstrapState(AllServices services)
+        public BootstrapState(IGameStateMachine stateMachine, AllServices services)
         {
-            RegisterServices();
+            _stateMachine = stateMachine;
             _services = services;
+
+            RegisterServices();
         }
 
         public void Enter()
         {
-            _services.Single<SceneLoader>().Load(InitScene, callback:)
+            _services.Single<SceneLoader>().Load(InitScene, callback: EnterLoadProgress);
         }
 
         public void Exit()
@@ -28,5 +31,8 @@ namespace WhereIsMyControl.Infrastructure
         {
             _services.RegisterSingle<ISceneLoader>(new SceneLoader());
         }
+
+        private void EnterLoadProgress() => 
+            _stateMachine.Enter<LoadProgressState>();
     }
 }
