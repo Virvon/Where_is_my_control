@@ -13,7 +13,8 @@ namespace WhereIsMyControl.Infrastructure
         {
             _states = new Dictionary<Type, IState>()
             {
-                [typeof(BootstrapState)] = new BootstrapState()
+                [typeof(BootstrapState)] = new BootstrapState(),
+                [typeof(LoadProgressState)] = new LoadProgressState()
             };
         }
 
