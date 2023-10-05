@@ -24,7 +24,7 @@ namespace WhereIsMyControl.Infrastructure
 
         public void Exit()
         {
-            
+
         }
 
         private void RegisterServices()
@@ -32,7 +32,7 @@ namespace WhereIsMyControl.Infrastructure
             _services.RegisterSingle<ISceneLoader>(new SceneLoader());
         }
 
-        private void EnterLoadProgress() => 
+        private void EnterLoadProgress() =>
             _stateMachine.Enter<LoadProgressState>();
     }
 }

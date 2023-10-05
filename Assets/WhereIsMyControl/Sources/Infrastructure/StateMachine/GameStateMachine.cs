@@ -15,7 +15,9 @@ namespace WhereIsMyControl.Infrastructure
             _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, services),
-                [typeof(LoadProgressState)] = new LoadProgressState()
+                [typeof(LoadProgressState)] = new LoadProgressState(this),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, services.Single<ISceneLoader>()),
+                [typeof(GameLoopState)] = new GameLoopState()
             };
         }
 
