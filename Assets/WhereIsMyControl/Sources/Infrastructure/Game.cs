@@ -1,4 +1,6 @@
-﻿namespace WhereIsMyControl.Infrastructure
+﻿using WhereIsMyControl.Services;
+
+namespace WhereIsMyControl.Infrastructure
 {
     public class Game
     {
@@ -6,7 +8,7 @@
 
         public Game()
         {
-            _stateMachine = new GameStateMachine();
+            _stateMachine = new GameStateMachine(AllServices.Instance);
 
             _stateMachine.Enter<BootstrapState>();
         }
