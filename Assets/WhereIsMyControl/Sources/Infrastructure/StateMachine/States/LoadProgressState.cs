@@ -2,7 +2,7 @@
 {
     public class LoadProgressState : IState
     {
-        private const string LevelScene = "";
+        private const string LevelScene = "Level1";
 
         private readonly IGameStateMachine _stateMachine;
 

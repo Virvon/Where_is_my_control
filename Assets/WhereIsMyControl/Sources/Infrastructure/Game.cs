@@ -4,13 +4,11 @@ namespace WhereIsMyControl.Infrastructure
 {
     public class Game
     {
-        private GameStateMachine _stateMachine;
+        public IGameStateMachine StateMachine { get; private set; }
 
         public Game()
         {
-            _stateMachine = new GameStateMachine(AllServices.Instance);
-
-            _stateMachine.Enter<BootstrapState>();
+            StateMachine = new GameStateMachine(AllServices.Instance);
         }
     }
 }

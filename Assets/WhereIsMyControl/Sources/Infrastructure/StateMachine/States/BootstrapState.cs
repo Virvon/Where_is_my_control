@@ -4,7 +4,7 @@ namespace WhereIsMyControl.Infrastructure
 {
     public class BootstrapState : IState
     {
-        private const string InitScene = "";
+        private const string InitScene = "Init";
 
         private readonly AllServices _services;
         private readonly IGameStateMachine _stateMachine;
@@ -19,7 +19,7 @@ namespace WhereIsMyControl.Infrastructure
 
         public void Enter()
         {
-            _services.Single<SceneLoader>().Load(InitScene, callback: EnterLoadProgress);
+            _services.Single<ISceneLoader>().Load(InitScene, callback: EnterLoadProgress);
         }
 
         public void Exit()
@@ -30,6 +30,9 @@ namespace WhereIsMyControl.Infrastructure
         private void RegisterServices()
         {
             _services.RegisterSingle<ISceneLoader>(new SceneLoader());
+            _services.RegisterSingle<IAssetProvider>(new AssetProvider());
+
+            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>()));
         }
 
         private void EnterLoadProgress() =>

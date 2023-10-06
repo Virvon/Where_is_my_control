@@ -1,16 +1,21 @@
-﻿using WhereIsMyControl.Services;
+﻿using UnityEngine;
+using WhereIsMyControl.Services;
 
 namespace WhereIsMyControl.Infrastructure
 {
     public class LoadLevelState : IPayloadState<string>
     {
+        private const string StartPoint = "StartPoint";
+
         private readonly IGameStateMachine _stateMachine;
         private readonly ISceneLoader _sceneLoader;
+        private readonly IGameFactory _gameFacotry;
 
-        public LoadLevelState(IGameStateMachine stateMachine, ISceneLoader sceneLoader)
+        public LoadLevelState(IGameStateMachine stateMachine, ISceneLoader sceneLoader, IGameFactory gameFacotry)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
+            _gameFacotry = gameFacotry;
         }
 
 
@@ -21,6 +26,8 @@ namespace WhereIsMyControl.Infrastructure
 
         private void OnLoaded()
         {
+            _gameFacotry.CreatePlayer(GameObject.FindGameObjectWithTag(StartPoint).transform.position);
+
             _stateMachine.Enter<GameLoopState>();
         }
 
