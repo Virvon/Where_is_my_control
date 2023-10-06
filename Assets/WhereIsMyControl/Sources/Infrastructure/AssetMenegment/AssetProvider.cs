@@ -10,5 +10,12 @@ namespace WhereIsMyControl.Infrastructure
 
             return Object.Instantiate(prefab, position, Quaternion.identity);
         }
+
+        public GameObject Instantiate(string path)
+        {
+            var prefab = Resources.Load<GameObject>(path);
+
+            return Object.Instantiate(prefab);
+        }
     }
 }

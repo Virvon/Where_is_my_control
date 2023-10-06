@@ -27,6 +27,8 @@ namespace WhereIsMyControl.Infrastructure
         private void OnLoaded()
         {
             _gameFacotry.CreatePlayer(GameObject.FindGameObjectWithTag(StartPoint).transform.position);
+            _gameFacotry.CreateCamera();
+            _gameFacotry.CreateBackground();
 
             _stateMachine.Enter<GameLoopState>();
         }

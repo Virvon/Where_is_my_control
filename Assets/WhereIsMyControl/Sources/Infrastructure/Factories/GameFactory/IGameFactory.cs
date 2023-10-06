@@ -6,5 +6,7 @@ namespace WhereIsMyControl.Infrastructure
     public interface IGameFactory : IService
     {
         void CreatePlayer(Vector2 position);
+        void CreateCamera();
+        void CreateBackground();
     }
 }

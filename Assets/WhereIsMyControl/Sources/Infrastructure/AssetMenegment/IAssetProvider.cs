@@ -6,5 +6,6 @@ namespace WhereIsMyControl.Infrastructure
     public interface IAssetProvider : IService
     {
         GameObject Instantiate(string path, Vector2 position);
+        GameObject Instantiate(string path);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Parallax : MonoBehaviour
@@ -25,5 +26,10 @@ public class Parallax : MonoBehaviour
 
         _targetPreviousPosition = _target.position;
         transform.position += delta * _strength;
+    }
+
+    internal void Init(Transform transform)
+    {
+        throw new NotImplementedException();
     }
 }
