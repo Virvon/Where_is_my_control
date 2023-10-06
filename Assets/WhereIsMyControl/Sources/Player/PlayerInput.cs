@@ -16,7 +16,6 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
         TryTouchGround();
-        Debug.Log(_isGrounded);
 
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded == true){
             SpacePressed?.Invoke();
