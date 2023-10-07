@@ -7,10 +7,14 @@ public class PlayerDeath : MonoBehaviour
 
     private DeathMenu _deathMenu;
 
+    public event Action Died;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out DeathTrigger deathTrigger))
         {
+            Died?.Invoke();
+
             gameObject.SetActive(false);
             _deathMenu.Open(() =>
             {

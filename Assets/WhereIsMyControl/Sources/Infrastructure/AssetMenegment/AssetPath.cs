@@ -7,5 +7,7 @@
         public const string Background = "Levels/Level1/Prefabs/Background";
         public const string GameOverMenu = "Ui/GameOverMenu";
         public const string DeathMenu = "Ui/DeathMenu/Prefab/DeathMenu";
+        public const string ControlSpawnTrigger = "Control/Prefabs/ControlSpawnTrigger";
+        public const string Control = "Control/Prefabs/Control";
     }
 }

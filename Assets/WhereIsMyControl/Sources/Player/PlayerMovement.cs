@@ -40,15 +40,9 @@ public class PlayerMovement : MonoBehaviour
         contactFilter.useLayerMask = true;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _input.Jumped -= OnJumped;
-    }
-
-    private void Update()
-    {
-        
-        
     }
 
     private void FixedUpdate()
@@ -80,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJumped()
     {
-        Debug.Log("Jumped");
         if (grounded)
             Velocity.y = _jumpForce;
     }

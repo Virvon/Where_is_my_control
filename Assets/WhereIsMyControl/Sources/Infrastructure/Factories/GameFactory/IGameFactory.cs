@@ -5,10 +5,12 @@ namespace WhereIsMyControl.Infrastructure
 {
     public interface IGameFactory : IService
     {
-        void CreatePlayer(Vector2 position);
+        GameObject CreatePlayer(Vector2 position);
         void CreateCamera();
         void CreateBackground();
         void CreateGameOverMenu();
         void CreateDeathMenu();
+        void CreateControl();
+        void CreateControlSpawnTrigger(Vector2 position);
     }
 }

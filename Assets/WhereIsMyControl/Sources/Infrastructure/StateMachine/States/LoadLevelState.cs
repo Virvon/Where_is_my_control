@@ -6,6 +6,7 @@ namespace WhereIsMyControl.Infrastructure
     public class LoadLevelState : IPayloadState<string>
     {
         private const string StartPoint = "StartPoint";
+        private const string ControlSpawnTrigger = "ControlSpawnTrigger";
 
         private readonly IGameStateMachine _stateMachine;
         private readonly ISceneLoader _sceneLoader;
@@ -31,6 +32,7 @@ namespace WhereIsMyControl.Infrastructure
             _gameFacotry.CreatePlayer(GameObject.FindGameObjectWithTag(StartPoint).transform.position);
             _gameFacotry.CreateCamera();
             _gameFacotry.CreateBackground();
+            _gameFacotry.CreateControlSpawnTrigger(GameObject.FindGameObjectWithTag(ControlSpawnTrigger).transform.position);
 
             _stateMachine.Enter<GameLoopState>();
         }

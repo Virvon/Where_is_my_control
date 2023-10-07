@@ -19,7 +19,7 @@ namespace WhereIsMyControl.Infrastructure
             _input = input;
         }
 
-        public void CreatePlayer(Vector2 position)
+        public GameObject CreatePlayer(Vector2 position)
         {
             _playerObject = _assetProvider.Instantiate(AssetPath.Player, position);
 
@@ -28,6 +28,8 @@ namespace WhereIsMyControl.Infrastructure
 
             _playerObject.GetComponent<PlayerDeath>()
                 .Init(_deathMenu);
+
+            return _playerObject;
         }
 
         public void CreateCamera()
@@ -59,6 +61,22 @@ namespace WhereIsMyControl.Infrastructure
             GameObject menu = _assetProvider.Instantiate(AssetPath.DeathMenu);
 
             _deathMenu = menu.GetComponent<DeathMenu>();
+        }
+
+        public void CreateControlSpawnTrigger(Vector2 position)
+        {
+            GameObject triggerObject = _assetProvider.Instantiate(AssetPath.ControlSpawnTrigger, position);
+
+            triggerObject.GetComponent<ControlSpawnTrigger>()
+                .Init(this);
+        }
+
+        public void CreateControl()
+        {
+            GameObject controlObject = _assetProvider.Instantiate(AssetPath.Control);
+
+            Control control = controlObject.GetComponent<Control>();
+            control.Init(_playerObject.GetComponent<PlayerDeath>());
         }
     }
 }
