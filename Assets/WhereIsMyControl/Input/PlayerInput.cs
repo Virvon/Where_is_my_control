@@ -35,7 +35,7 @@ namespace WhereIsMyControl.Input
                     ""id"": ""3ce89767-5983-43aa-96da-9530b46c631f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": false
                 }
             ],

@@ -10,11 +10,11 @@ namespace WhereIsMyControl.Infrastructure
 
         private IExitableState _currentState;
 
-        public GameStateMachine(AllServices services)
+        public GameStateMachine(AllServices services, ICoroutineRunner coroutineRunner)
         {
             _states = new Dictionary<Type, IExitableState>()
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, services),
+                [typeof(BootstrapState)] = new BootstrapState(this, services, coroutineRunner),
                 [typeof(LoadProgressState)] = new LoadProgressState(this),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, services.Single<ISceneLoader>(), services.Single<IGameFactory>()),
                 [typeof(GameLoopState)] = new GameLoopState(),

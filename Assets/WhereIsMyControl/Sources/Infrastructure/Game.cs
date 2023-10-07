@@ -6,9 +6,9 @@ namespace WhereIsMyControl.Infrastructure
     {
         public IGameStateMachine StateMachine { get; private set; }
 
-        public Game()
+        public Game(ICoroutineRunner coroutineRunner)
         {
-            StateMachine = new GameStateMachine(AllServices.Instance);
+            StateMachine = new GameStateMachine(AllServices.Instance, coroutineRunner);
         }
     }
 }
