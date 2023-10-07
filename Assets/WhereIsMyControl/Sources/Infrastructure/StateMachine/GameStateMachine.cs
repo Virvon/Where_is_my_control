@@ -18,7 +18,7 @@ namespace WhereIsMyControl.Infrastructure
                 [typeof(LoadProgressState)] = new LoadProgressState(this),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, services.Single<ISceneLoader>(), services.Single<IGameFactory>()),
                 [typeof(GameLoopState)] = new GameLoopState(),
-                [typeof(MenuState)] = new MenuState()
+                [typeof(MenuState)] = new MenuState(this, services.Single<IGameFactory>())
             };
         }
 

@@ -32,8 +32,9 @@ namespace WhereIsMyControl.Infrastructure
             _services.RegisterSingle<ISceneLoader>(new SceneLoader());
             _services.RegisterSingle<IAssetProvider>(new AssetProvider());
             _services.RegisterSingle<IInputService>(new InputService());
+            _services.RegisterSingle(_stateMachine);
 
-            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), _services.Single<IInputService>()));
+            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), _services.Single<IInputService>(), _services.Single<IGameStateMachine>(), _services.Single<ISceneLoader>()));
         }
 
         private void EnterLoadProgress() =>

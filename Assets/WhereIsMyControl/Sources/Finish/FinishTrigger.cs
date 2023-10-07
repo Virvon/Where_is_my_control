@@ -1,12 +1,16 @@
+using System.Collections;
 using UnityEngine;
 using WhereIsMyControl.Infrastructure;
+using WhereIsMyControl.Services;
 
 public class FinishTrigger : MonoBehaviour
 {
     private const string ControlFinishPosition = "ControlFinishPosition";
+    private const string MenuScene = "Menu";
 
     private Control _control;
     private IGameStateMachine _stateMashine;
+    private ISceneLoader _sceneLoader;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,12 +18,20 @@ public class FinishTrigger : MonoBehaviour
         {
             StopPlayer(playerMovement);
             StopControl();
+
+            StartCoroutine(Waiter());
         }
     }
 
     public void Init(Control control)
     {
         _control = control;
+    }
+
+    public void Init(ISceneLoader sceneLoader, IGameStateMachine stateMachine)
+    {
+        _sceneLoader = sceneLoader;
+        _stateMashine = stateMachine;
     }
 
     private void StopControl() => 
@@ -30,6 +42,13 @@ public class FinishTrigger : MonoBehaviour
 
     private void EnterMenuState()
     {
-        
+        _sceneLoader.Load(MenuScene, _stateMashine.Enter<MenuState>);
+    }
+
+    private IEnumerator Waiter()
+    {
+        yield return new WaitForSeconds(2);
+
+        EnterMenuState();
     }
 }

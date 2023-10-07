@@ -8,16 +8,20 @@ namespace WhereIsMyControl.Infrastructure
     {
         private readonly IAssetProvider _assetProvider;
         private readonly IInputService _input;
+        private readonly IGameStateMachine _stateMachine;
+        private readonly ISceneLoader _sceneLoader;
 
         private GameObject _playerObject;
         private GameOverMenu _gameOverMenu;
         private DeathMenu _deathMenu;
         private FinishTrigger _finishTrigger;
 
-        public GameFactory(IAssetProvider assetProvider, IInputService input)
+        public GameFactory(IAssetProvider assetProvider, IInputService input, IGameStateMachine stateMachine, ISceneLoader sceneLoader)
         {
             _assetProvider = assetProvider;
             _input = input;
+            _stateMachine = stateMachine;
+            _sceneLoader = sceneLoader;
         }
 
         public GameObject CreatePlayer(Vector2 position)
@@ -87,6 +91,15 @@ namespace WhereIsMyControl.Infrastructure
             GameObject finishPointObject = _assetProvider.Instantiate(AssetPath.FinisPoint, position);
 
             _finishTrigger = finishPointObject.GetComponent<FinishTrigger>();
+            _finishTrigger.Init(_sceneLoader, _stateMachine);
+        }
+
+        public void CreateMainMenu()
+        {
+            GameObject mainMenuObject = _assetProvider.Instantiate(AssetPath.MainMenu);
+
+            mainMenuObject.GetComponent<MainMenu>()
+                .Init(_stateMachine);
         }
     }
 }

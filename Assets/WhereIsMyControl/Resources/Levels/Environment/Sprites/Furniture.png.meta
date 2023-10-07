@@ -359,6 +359,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Furniture_11
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 92
+        width: 56
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5733c62e684fbd64899e7b7992dccfe3
+      internalID: -532265762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furniture_12
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 125
+        width: 12
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82858347a0c6fc947ba4e0b1396b9ec9
+      internalID: -210048550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -376,11 +418,13 @@ TextureImporter:
       Furniture_10: 2098814024
       Furniture_4: 1337960695
       Furniture_8: -782451469
+      Furniture_11: -532265762
       Furniture_2: -687613608
       Furniture_7: 988979259
       Furniture_5: 724765900
       Furniture_1: -1905295703
       Furniture_3: -718005944
+      Furniture_12: -210048550
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

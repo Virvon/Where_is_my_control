@@ -11,6 +11,7 @@ namespace WhereIsMyControl.Infrastructure
         void CreateGameOverMenu();
         void CreateDeathMenu();
         void CreateControl();
+        void CreateMainMenu();
         void CreateControlSpawnTrigger(Vector2 position);
         void CreateFinishTrigger(Vector2 position);
     }
