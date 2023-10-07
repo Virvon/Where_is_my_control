@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using WhereIsMyControl.Services;
@@ -8,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
+    [SerializeField] private float _stopSpeed;
 
     public float MinGroundNormalY = .65f;
     public float GravityModifier = 1f;
@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask LayerMask;
 
     private IInputService _input;
+    private bool _canJump;
 
     protected Vector2 targetVelocity;
     protected bool grounded;
@@ -66,16 +67,25 @@ public class PlayerMovement : MonoBehaviour
     public void Init(IInputService input)
     {
         _input = input;
+        _canJump = true;
 
         targetVelocity = new Vector2(_speed, 0);
 
         _input.Jumped += OnJumped;
     }
 
+    public void Stop()
+    {
+        _canJump = false;
+        targetVelocity = Vector2.zero;
+    }
+
     private void OnJumped()
     {
-        if (grounded)
+        if (grounded && _canJump)
+        {
             Velocity.y = _jumpForce;
+        }
     }
 
     private void Movement(Vector2 move, bool yMovement)
@@ -99,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
                 if (currentNormal.y > MinGroundNormalY)
                 {
                     grounded = true;
+
                     if (yMovement)
                     {
                         groundNormal = currentNormal;
@@ -119,5 +130,4 @@ public class PlayerMovement : MonoBehaviour
 
         rb2d.position = rb2d.position + move.normalized * distance;
     }
-
 }

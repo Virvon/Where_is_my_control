@@ -6,6 +6,8 @@ TagManager:
   tags:
   - StartPoint
   - ControlSpawnTrigger
+  - FinishPoint
+  - ControlFinishPosition
   layers:
   - Default
   - TransparentFX

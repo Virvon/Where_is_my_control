@@ -6,6 +6,7 @@ namespace WhereIsMyControl.Infrastructure
     public class LoadLevelState : IPayloadState<string>
     {
         private const string StartPoint = "StartPoint";
+        private const string FinishPoint = "FinishPoint";
         private const string ControlSpawnTrigger = "ControlSpawnTrigger";
 
         private readonly IGameStateMachine _stateMachine;
@@ -33,6 +34,7 @@ namespace WhereIsMyControl.Infrastructure
             _gameFacotry.CreateCamera();
             _gameFacotry.CreateBackground();
             _gameFacotry.CreateControlSpawnTrigger(GameObject.FindGameObjectWithTag(ControlSpawnTrigger).transform.position);
+            _gameFacotry.CreateFinishTrigger(GameObject.FindGameObjectWithTag(FinishPoint).transform.position);
 
             _stateMachine.Enter<GameLoopState>();
         }

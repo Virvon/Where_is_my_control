@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Control : MonoBehaviour
@@ -29,6 +28,14 @@ public class Control : MonoBehaviour
         _playerDeath.Died += OnDied;
 
         _currentCoroutine = StartCoroutine(SpawnMover());
+    }
+
+    public void Stop(Vector3 position)
+    {
+        if (_currentCoroutine != null)
+            StopCoroutine(_currentCoroutine);
+
+        StartCoroutine(Stopper(position));
     }
 
     private void OnDied()
@@ -85,5 +92,19 @@ public class Control : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private IEnumerator Stopper(Vector3 position)
+    {
+        float time = 0;
+
+        while(transform.position != position)
+        {
+            time += Time.deltaTime;
+
+            transform.position = Vector3.Lerp(transform.position, position, time / _followSpeed);
+
+            yield return null;
+        }
     }
 }

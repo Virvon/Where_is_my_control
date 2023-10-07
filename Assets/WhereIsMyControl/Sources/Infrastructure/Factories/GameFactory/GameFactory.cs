@@ -12,6 +12,7 @@ namespace WhereIsMyControl.Infrastructure
         private GameObject _playerObject;
         private GameOverMenu _gameOverMenu;
         private DeathMenu _deathMenu;
+        private FinishTrigger _finishTrigger;
 
         public GameFactory(IAssetProvider assetProvider, IInputService input)
         {
@@ -77,6 +78,15 @@ namespace WhereIsMyControl.Infrastructure
 
             Control control = controlObject.GetComponent<Control>();
             control.Init(_playerObject.GetComponent<PlayerDeath>());
+
+            _finishTrigger.Init(control);
+        }
+
+        public void CreateFinishTrigger(Vector2 position)
+        {
+            GameObject finishPointObject = _assetProvider.Instantiate(AssetPath.FinisPoint, position);
+
+            _finishTrigger = finishPointObject.GetComponent<FinishTrigger>();
         }
     }
 }
