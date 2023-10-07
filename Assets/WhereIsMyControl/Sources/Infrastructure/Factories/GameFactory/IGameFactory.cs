@@ -8,5 +8,7 @@ namespace WhereIsMyControl.Infrastructure
         void CreatePlayer(Vector2 position);
         void CreateCamera();
         void CreateBackground();
+        void CreateGameOverMenu();
+        void CreateDeathMenu();
     }
 }

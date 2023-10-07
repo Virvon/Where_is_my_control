@@ -1,35 +1,36 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    [SerializeField] private Transform _target;
     [SerializeField, Range(0, 1)] private float _strength;
     [SerializeField] private bool _verticalParallax;
 
     private Vector3 _targetPreviousPosition;
+    private Transform _target;
 
-    private void Start()
+    public void Init(Transform target)
     {
-        if (_target == null)
-            _target = Camera.main.transform;
-
+        _target = target;
         _targetPreviousPosition = _target.position;
+
+        StartCoroutine(ParallaxMover());
     }
 
-    private void Update()
+    private IEnumerator ParallaxMover()
     {
-        var delta = _target.position - _targetPreviousPosition;
+        while (_target != null)
+        {
+            var delta = _target.position - _targetPreviousPosition;
 
-        if (_verticalParallax == false)
-            delta.y = 0;
+            if (_verticalParallax == false)
+                delta.y = 0;
 
-        _targetPreviousPosition = _target.position;
-        transform.position += delta * _strength;
-    }
+            _targetPreviousPosition = _target.position;
+            transform.position += delta * _strength;
 
-    internal void Init(Transform transform)
-    {
-        throw new NotImplementedException();
+            yield return null;
+        }
     }
 }

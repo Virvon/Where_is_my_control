@@ -10,6 +10,8 @@ namespace WhereIsMyControl.Infrastructure
         private readonly IInputService _input;
 
         private GameObject _playerObject;
+        private GameOverMenu _gameOverMenu;
+        private DeathMenu _deathMenu;
 
         public GameFactory(IAssetProvider assetProvider, IInputService input)
         {
@@ -23,6 +25,9 @@ namespace WhereIsMyControl.Infrastructure
 
             _playerObject.GetComponent<PlayerMovement>()
                 .Init(_input);
+
+            _playerObject.GetComponent<PlayerDeath>()
+                .Init(_deathMenu);
         }
 
         public void CreateCamera()
@@ -39,6 +44,21 @@ namespace WhereIsMyControl.Infrastructure
 
             foreach (var parallax in background.GetComponentsInChildren<Parallax>())
                 parallax.Init(_playerObject.transform);
+        }
+
+        public void CreateGameOverMenu()
+        {
+            GameObject menu = _assetProvider.Instantiate(AssetPath.GameOverMenu);
+
+            _gameOverMenu = menu.GetComponent<GameOverMenu>();
+            _gameOverMenu.gameObject.SetActive(false);
+        }
+
+        public void CreateDeathMenu()
+        {
+            GameObject menu = _assetProvider.Instantiate(AssetPath.DeathMenu);
+
+            _deathMenu = menu.GetComponent<DeathMenu>();
         }
     }
 }

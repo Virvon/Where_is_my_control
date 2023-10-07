@@ -26,6 +26,8 @@ namespace WhereIsMyControl.Infrastructure
 
         private void OnLoaded()
         {
+            _gameFacotry.CreateDeathMenu();
+            _gameFacotry.CreateGameOverMenu();
             _gameFacotry.CreatePlayer(GameObject.FindGameObjectWithTag(StartPoint).transform.position);
             _gameFacotry.CreateCamera();
             _gameFacotry.CreateBackground();

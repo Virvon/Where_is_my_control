@@ -4,6 +4,8 @@
     {
         public const string Player = "Player/Player";
         public const string Camera = "Camera/VirtualCamera";
-        internal static string Background;
+        public const string Background = "Levels/Level1/Prefabs/Background";
+        public const string GameOverMenu = "Ui/GameOverMenu";
+        public const string DeathMenu = "Ui/DeathMenu/Prefab/DeathMenu";
     }
 }
