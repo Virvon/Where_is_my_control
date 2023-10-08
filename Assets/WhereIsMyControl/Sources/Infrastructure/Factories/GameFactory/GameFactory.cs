@@ -53,14 +53,6 @@ namespace WhereIsMyControl.Infrastructure
                 parallax.Init(_playerObject.transform);
         }
 
-        public void CreateGameOverMenu()
-        {
-            GameObject menu = _assetProvider.Instantiate(AssetPath.GameOverMenu);
-
-            _gameOverMenu = menu.GetComponent<GameOverMenu>();
-            _gameOverMenu.gameObject.SetActive(false);
-        }
-
         public void CreateDeathMenu()
         {
             GameObject menu = _assetProvider.Instantiate(AssetPath.DeathMenu);

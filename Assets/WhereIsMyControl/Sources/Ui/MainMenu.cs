@@ -16,4 +16,9 @@ public class MainMenu : MonoBehaviour
     {
         _stateMachine.Enter<LoadLevelState, string>(Level1);
     }
+
+    public void Exit()
+    {
+
+    }
 }
