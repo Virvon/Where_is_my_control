@@ -3,8 +3,9 @@
 public class PlayerJumpParticles : MonoBehaviour
 {
     [SerializeField] private Transform _spawnPosition;
-    [SerializeField] private ParticleSystem _jumpParticle;
+    [SerializeField] private GameObject _jumpParticle;
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private float _yOffset;
 
     private void OnEnable() => 
         _playerMovement.Jumped += OnJumped;
@@ -13,5 +14,5 @@ public class PlayerJumpParticles : MonoBehaviour
         _playerMovement.Jumped -= OnJumped;
 
     private void OnJumped() => 
-        Instantiate(_jumpParticle, _spawnPosition.position, Quaternion.identity);
+        Instantiate(_jumpParticle, new Vector3(_spawnPosition.position.x,_spawnPosition.position.y - _yOffset, _spawnPosition.position.z), Quaternion.identity);
 }
