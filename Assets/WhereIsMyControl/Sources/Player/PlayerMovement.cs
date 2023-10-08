@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && _canJump)
         {
             Velocity.y = _jumpForce;
+            Jumped?.Invoke();
         }
     }
 
