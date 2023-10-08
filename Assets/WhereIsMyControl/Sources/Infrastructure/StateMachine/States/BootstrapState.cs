@@ -21,7 +21,7 @@ namespace WhereIsMyControl.Infrastructure
 
         public void Enter()
         {
-            _services.Single<ISceneLoader>().Load(InitScene, callback: EnterLoadProgress);
+            _services.Single<ISceneLoader>().Load(InitScene, callback: EnterCutScene);
         }
 
         public void Exit()
@@ -39,7 +39,7 @@ namespace WhereIsMyControl.Infrastructure
             _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), _services.Single<IInputService>(), _services.Single<IGameStateMachine>(), _services.Single<ISceneLoader>()));
         }
 
-        private void EnterLoadProgress() =>
-            _stateMachine.Enter<LoadProgressState>();
+        private void EnterCutScene() =>
+            _stateMachine.Enter<CutSceneState>();
     }
 }

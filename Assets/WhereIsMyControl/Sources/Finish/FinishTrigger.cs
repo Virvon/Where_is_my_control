@@ -7,6 +7,7 @@ public class FinishTrigger : MonoBehaviour
 {
     private const string ControlFinishPosition = "ControlFinishPosition";
     private const string MenuScene = "Menu";
+    private const float WaitingTime = 3;
 
     private Control _control;
     private IGameStateMachine _stateMashine;
@@ -47,7 +48,7 @@ public class FinishTrigger : MonoBehaviour
 
     private IEnumerator Waiter()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(WaitingTime);
 
         EnterMenuState();
     }

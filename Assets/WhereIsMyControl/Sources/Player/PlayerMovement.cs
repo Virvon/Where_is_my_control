@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using WhereIsMyControl.Services;
@@ -28,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     protected const float minMoveDistance = 0.001f;
     protected const float shellRadius = 0.01f;
+
+    public event Action Jumped;
 
     private void OnEnable()
     {

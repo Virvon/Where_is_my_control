@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66756ae1b3abaf34a831434509c1ae4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnOffset: 15
+  _spawnOffset: 18
   _spawnMoveSpeed: 6
   _verticalPosition: 0
-  _offset: 10
+  _offset: 11
   _followSpeed: 4

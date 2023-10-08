@@ -15,7 +15,7 @@ namespace WhereIsMyControl.Infrastructure
             _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, services, coroutineRunner),
-                [typeof(LoadProgressState)] = new LoadProgressState(this),
+                [typeof(CutSceneState)] = new CutSceneState(this, services.Single<ISceneLoader>()),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, services.Single<ISceneLoader>(), services.Single<IGameFactory>()),
                 [typeof(GameLoopState)] = new GameLoopState(),
                 [typeof(MenuState)] = new MenuState(this, services.Single<IGameFactory>())
