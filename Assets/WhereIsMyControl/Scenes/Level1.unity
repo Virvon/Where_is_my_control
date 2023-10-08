@@ -1995,6 +1995,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 323868504}
     m_Modifications:
+    - target: {fileID: 8865848553961171360, guid: 03a781ae607df3f4ebdbfef6e9cf6de3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8865848553961171362, guid: 03a781ae607df3f4ebdbfef6e9cf6de3, type: 3}
       propertyPath: m_RootOrder
       value: 101
@@ -4313,7 +4317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6732002976891226370, guid: c15d0abf1f74ed34ca3a4c9bb2cbc529, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9133525424664685438, guid: c15d0abf1f74ed34ca3a4c9bb2cbc529, type: 3}
       propertyPath: m_Name
@@ -5010,6 +5014,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 323868504}
     m_Modifications:
+    - target: {fileID: 8966123211891425747, guid: 1ac73a8d50b46de40986453463f5a03e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8966123211891425756, guid: 1ac73a8d50b46de40986453463f5a03e, type: 3}
       propertyPath: m_Name
       value: Table_01 (3)
@@ -5134,6 +5142,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 323868504}
     m_Modifications:
+    - target: {fileID: 205334311218606958, guid: d9d02bcb930d06c4b9cb93301e43711a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3340465216775384229, guid: d9d02bcb930d06c4b9cb93301e43711a, type: 3}
       propertyPath: m_RootOrder
       value: 104
@@ -6353,6 +6365,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5739199485103543033, guid: c25e84f99bc9f1e4db9c5b55e55cc733, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5739199485103543035, guid: c25e84f99bc9f1e4db9c5b55e55cc733, type: 3}
       propertyPath: m_Name
       value: "\u0421loset_01"
@@ -6898,6 +6914,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 323868504}
     m_Modifications:
+    - target: {fileID: 8966123211891425747, guid: 1ac73a8d50b46de40986453463f5a03e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8966123211891425756, guid: 1ac73a8d50b46de40986453463f5a03e, type: 3}
       propertyPath: m_Name
       value: Table_01 (4)
