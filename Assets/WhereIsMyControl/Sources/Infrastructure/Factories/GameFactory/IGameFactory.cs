@@ -13,5 +13,6 @@ namespace WhereIsMyControl.Infrastructure
         void CreateMainMenu();
         void CreateControlSpawnTrigger(Vector2 position);
         void CreateFinishTrigger(Vector2 position);
+        void CreatePause();
     }
 }

@@ -93,5 +93,10 @@ namespace WhereIsMyControl.Infrastructure
             mainMenuObject.GetComponent<MainMenu>()
                 .Init(_stateMachine);
         }
+
+        public void CreatePause()
+        {
+            _assetProvider.Instantiate(AssetPath.Pause);
+        }
     }
 }

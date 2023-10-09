@@ -41,7 +41,6 @@ public class DialoguesTransitions : MonoBehaviour
             return;
         }
         _counter++;
-        Debug.Log(_counter);
 
         if(_counter != 0)
         {

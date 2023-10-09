@@ -15,19 +15,23 @@ public class PauseMenu : MonoBehaviour
  
     private const int MaxMixerValue = 0;
     private const int MinMixerValue = -80;
-    private float _currentValue;
+    private float _currentValue = 1;
+    private float _targetValue;
 
     private void OnEnable()
     {
         _slider.value = _currentValue;
         _slider.onValueChanged.AddListener(ChangeVolume);
         _exitButton.onClick.AddListener(ExitGame);
+        _mixer.audioMixer.GetFloat("MasterVolume", out _targetValue);
     }
 
     private void OnDisable()
     {
         _exitButton.onClick.RemoveListener(ExitGame);
         _slider.onValueChanged.AddListener(ChangeVolume);
+
+        _mixer.audioMixer.SetFloat("MasterVolume", _targetValue);
     }
 
     private void Awake()
@@ -40,7 +44,7 @@ public class PauseMenu : MonoBehaviour
     public void ChangeVolume(float value)
     {
         _currentValue = value;
-        _mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(MinMixerValue, MaxMixerValue, value));
+        _targetValue = Mathf.Lerp(MinMixerValue, MaxMixerValue, value);
     }
 
     private void ExitGame()

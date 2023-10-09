@@ -9,6 +9,7 @@
         public const string ControlSpawnTrigger = "Triggers/ControlSpawnTrigger";
         public const string Control = "Control/Prefabs/Control";
         public const string FinisPoint = "Triggers/FinishTrigger";
-        internal static string MainMenu = "Ui/MainMenu";
+        public const string MainMenu = "Ui/MainMenu";
+        public const string Pause = "Ui/Pause";
     }
 }

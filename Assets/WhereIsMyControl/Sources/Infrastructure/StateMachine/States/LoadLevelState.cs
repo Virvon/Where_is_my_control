@@ -34,6 +34,7 @@ namespace WhereIsMyControl.Infrastructure
             _gameFacotry.CreateBackground();
             _gameFacotry.CreateControlSpawnTrigger(GameObject.FindGameObjectWithTag(ControlSpawnTrigger).transform.position);
             _gameFacotry.CreateFinishTrigger(GameObject.FindGameObjectWithTag(FinishPoint).transform.position);
+            _gameFacotry.CreatePause();
 
             _stateMachine.Enter<GameLoopState>();
         }
